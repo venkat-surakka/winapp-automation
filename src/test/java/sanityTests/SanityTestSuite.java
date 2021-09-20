@@ -1,4 +1,4 @@
-package sanity;
+package sanityTests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,21 +1,19 @@
-package functional.calculator;
+package functionalTests.calculator;
 
-import functional.TestBase;
+import functionalTests.TestBase;
+import functionalTests.pages.CalculatorPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utilities.GenericFunctions;
 
-import java.util.List;
-
-import static functional.TestBase.startProcess;
-
 public class XpathTests extends TestBase {
+    private static CalculatorPage calculatorPO;
+
     @BeforeAll
     public static void Setup() {
         startProcess();
+        calculatorPO = new CalculatorPage(CalculatorSession);
     }
 
     @Test
@@ -25,8 +23,8 @@ public class XpathTests extends TestBase {
         CalculatorSession.findElementByAccessibilityId("num5Button").click();
         CalculatorSession.findElementByAccessibilityId("plusButton").click();
         CalculatorSession.findElementByAccessibilityId("num9Button").click();
-        CalculatorSession.findElementByAccessibilityId("equalButton").click();
-
+//        CalculatorSession.findElementByAccessibilityId("equalButton").click();
+        calculatorPO.clickEquals();
 
 //        CalculatorResult = CalculatorSession.findElementByAccessibilityId("CalculatorResults");
 //        Assertions.assertTrue(CalculatorResult.getText().contains("14"));
@@ -35,6 +33,6 @@ public class XpathTests extends TestBase {
         Assertions.assertTrue(currentText.contains("14"));
 
         // Similarly for getCellValue it should be
-        String cellValue = GenericFunctions.getCellValue(CalculatorSession, 2, 0);
+        // String cellValue = GenericFunctions.getCellValue(CalculatorSession, 2, 0);
     }
 }

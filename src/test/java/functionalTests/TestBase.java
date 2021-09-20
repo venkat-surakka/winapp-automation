@@ -1,4 +1,4 @@
-package functional;
+package functionalTests;
 
 import io.appium.java_client.windows.WindowsDriver;
 import org.openqa.selenium.WebElement;
